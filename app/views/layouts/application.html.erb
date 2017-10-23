@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Chatapp</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <% if notice %>
+        <p><%= notice %></p>
+      <% end %>
+      <% if alert %>
+        <p"><%= alert %></p>
+      <% end %>
+      <%= render partial: 'home/nav' %>
+      <%= yield %>
+    </div>
+  </body>
+</html>

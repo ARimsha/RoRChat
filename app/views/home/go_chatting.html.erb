@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <%= link_to 'New Chat', new_chat_path, class: 'btn btn-primary' %>
+    <br/><br/>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>Messages sent</h4>
+      <% @message_sent.each do |m| %>
+        <% receiver = User.find(m.receiver_id) %>
+        To <%= receiver.email %>
+        <textarea class="form-control" rows="10" cols="50" readonly="true"> <%= m.content %> </textarea>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6">
+      <h4>Messages received</h4>
+      <% @message_received.each do |m| %>
+        <% sender = User.find(m.sender_id) %>
+        From <%= sender.email %>
+        <textarea class="form-control" rows="10" cols="50" readonly="true"> <%= m.content %> </textarea>
+      <% end %>
+    </div>
+  </div>
+</div>
